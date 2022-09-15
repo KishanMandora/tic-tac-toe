@@ -1,10 +1,8 @@
+import { calculateNextValue } from "../utils/calculateNextValue";
 import { calculateWinner } from "../utils/calculateWinner";
 
 function RenderSquare({ squares, setSquares, i }) {
-  const calculateNextValue = () =>
-    squares.filter(Boolean).length % 2 === 0 ? "X" : "O";
-
-  const nextValue = calculateNextValue();
+  const nextValue = calculateNextValue(squares);
   const winner = calculateWinner(squares);
 
   const selectSquare = (i) => {
