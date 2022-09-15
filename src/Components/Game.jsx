@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { RenderSquare } from "./RenderSquare";
 import { gameCalculations } from "../utils/gameCalculations";
+import { useEffect } from "react";
 
 function Game() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = useState(
+    () =>
+      JSON.parse(window.localStorage.getItem("squares")) || Array(9).fill(null)
+  );
+
+  useEffect(() => {
+    window.localStorage.setItem("squares", JSON.stringify(squares));
+  });
 
   const { status } = gameCalculations(squares);
 
