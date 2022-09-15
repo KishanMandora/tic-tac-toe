@@ -7,12 +7,12 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     styled: true,
-    themes: ["emerald"],
+    themes: ["night"],
     base: true,
     utils: true,
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "emerald",
+    darkTheme: "night",
   },
 };
