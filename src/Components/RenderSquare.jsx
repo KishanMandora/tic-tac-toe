@@ -1,11 +1,14 @@
+import { calculateWinner } from "../utils/calculateWinner";
+
 function RenderSquare({ squares, setSquares, i }) {
   const calculateNextValue = () =>
     squares.filter(Boolean).length % 2 === 0 ? "X" : "O";
 
   const nextValue = calculateNextValue();
+  const winner = calculateWinner(squares);
 
   const selectSquare = (i) => {
-    if (squares[i]) {
+    if (winner || squares[i]) {
       return;
     }
     const squaresCopy = [...squares];
