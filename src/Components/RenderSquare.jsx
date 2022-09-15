@@ -1,9 +1,7 @@
-import { calculateNextValue } from "../utils/calculateNextValue";
-import { calculateWinner } from "../utils/calculateWinner";
+import { gameCalculations } from "../utils/gameCalculations";
 
 function RenderSquare({ squares, setSquares, i }) {
-  const nextValue = calculateNextValue(squares);
-  const winner = calculateWinner(squares);
+  const { winner, nextValue } = gameCalculations(squares);
 
   const selectSquare = (i) => {
     if (winner || squares[i]) {
